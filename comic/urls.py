@@ -8,12 +8,6 @@ urlpatterns = [
     url(r'^create/$', views.comicgen, name='comicgen'),
     url(r'^about/$', views.about, name='comicgen'),
     url(r'^unsupported/$', views.unsupported, name='unsupported'),
+    # url(r'^static/(?P.*)$', django.views.static.serve, name='static'),
     url(r'^$', views.home, name='home')
 ]
-
-import os
-if settings.DEBUG404:
-    urlpatterns += patterns('',
-    (r'^static/(?P<path>.*)$', 'django.views.static.serve',
-    {'document_root': os.path.join(os.path.dirname(__file__), 'static')} ),
-    )
