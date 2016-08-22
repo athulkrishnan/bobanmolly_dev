@@ -10,3 +10,7 @@ urlpatterns = [
     url(r'^unsupported/$', views.unsupported, name='unsupported'),
     url(r'^$', views.home, name='home'),
 ]
+
+urlpatterns += patterns('',
+    (r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+)
