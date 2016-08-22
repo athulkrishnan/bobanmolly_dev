@@ -8,9 +8,6 @@ urlpatterns = [
     url(r'^create/$', views.comicgen, name='comicgen'),
     url(r'^about/$', views.about, name='comicgen'),
     url(r'^unsupported/$', views.unsupported, name='unsupported'),
+    (r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     url(r'^$', views.home, name='home'),
 ]
-
-urlpatterns += patterns('',
-    (r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-)
