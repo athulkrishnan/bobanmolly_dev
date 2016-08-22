@@ -13,8 +13,11 @@ ALLOWED_HOSTS = []
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd8absrlmrmhfhc',
+        'USER': 'afajjrbqjhblnz',
+        'PASSWORD': 'UzGS2IWFjQr0Iw_7B0oDVLa7Oq',
+        'HOST': 'ec2-54-204-39-67.compute-1.amazonaws.com'
     }
 }
 
