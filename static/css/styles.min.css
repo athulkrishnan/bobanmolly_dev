@@ -40,7 +40,7 @@ textarea {
     max-height: 340px
 }
 
-@font-face {
+/*@font-face {
     font-family: Roboto;
     src: url(../fonts/Roboto-Thin.eot);
     src: local("Roboto Thin"), local("Roboto-Thin"), url(../fonts/Roboto-Thin.eot%3F) format("embedded-opentype"), url(../fonts/Roboto-Thin.woff2) format("woff2"), url(../fonts/Roboto-Thin.woff) format("woff"), url(../fonts/Roboto-Thin.ttf) format("truetype"), url(../fonts/Roboto-Thin.svg) format("svg");
@@ -214,7 +214,7 @@ textarea {
     src: url(../fonts/fontawesome-webfont.eot%3F) format("embedded-opentype"), url(../fonts/fontawesome-webfont.woff2%3Fv=4.6.3) format("woff2"), url(../fonts/fontawesome-webfont.woff%3Fv=4.6.3) format("woff"), url(../fonts/fontawesome-webfont.ttf%3Fv=4.6.3) format("truetype"), url(../fonts/fontawesome-webfont.svg%3Fv=4.6.3) format("svg");
     font-weight: 400;
     font-style: normal
-}
+}*/
 
 .fa {
     font: normal normal normal 14px/1 FontAwesome;
