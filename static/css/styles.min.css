@@ -11707,7 +11707,7 @@ aside.sidebar .user-logged-in .content .user-actions {
 
 aside.sidebar .user-logged-in:after {
     content: "";
-    background: url(/static/img/user-bg.png);
+    background: url(/static/images/user-bg.png);
     background-size: cover;
     opacity: .2;
     top: 0;
