@@ -55,7 +55,8 @@ function addCheckbox(editform,textBox) {
     });
 
     var h = document.createElement("label")
-    var labelcheckBox = document.createTextNode(' Type in Malayalam[ctrl+m]');
+    var checkBox = document.createTextNode(' Type in Malayalam[ctrl+m]');
+    // var labelcheckBox = document.createTextNode(' Type in Malayalam[ctrl+m]');    
     editform.insertBefore(element,textBox);
     document.getElementById("realtime").checked = realTime;
     editform.insertBefore(labelcheckBox,textBox);

@@ -52,7 +52,7 @@ fabric.Object.prototype.set({
     // console.log(cWidth);
     // console.log(cHeight);
     var cHeight = 600;
-    var cWidth = 800;
+    var cWidth = 1000;
     $('#c').attr('height', cHeight);
     $('#c').attr('width', cWidth);
     // $('#c').css('margin-left', ($('.canvaswrap').width() * 5 / 100));
@@ -111,7 +111,7 @@ fabric.Object.prototype.set({
                 recieved_data = JSON.parse(data);
                 $('#libraryView').html('');
                 $.each(recieved_data['images'], function(index, value) {
-                    $('#libraryView').append("<div class='col-md-4 librarycol'>\
+                    $('#libraryView').append("<div class='col-md-6 librarycol'>\
         <div class='img-back'><img class='img-responsive' src='" + value +
                         "' alt=''></div></div>");
                 }); //each
