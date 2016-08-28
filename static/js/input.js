@@ -38,6 +38,7 @@ function addCheckbox(editform,textBox) {
     var element = document.createElement("input");
     element.setAttribute("type","checkbox");
     element.setAttribute("id","realtime");
+    element.setAttribute("class", "checkbox");
 
 
     if (element.addEventListener)
@@ -56,13 +57,13 @@ function addCheckbox(editform,textBox) {
 
     var h = document.createElement("label")
     var checkBox = document.createTextNode(' Type in Malayalam[ctrl+m]');
-    // var labelcheckBox = document.createTextNode(' Type in Malayalam[ctrl+m]');    
+    var labelcheckBox = document.createTextNode(' Type in Malayalam');    
     editform.insertBefore(element,textBox);
     document.getElementById("realtime").checked = realTime;
     editform.insertBefore(labelcheckBox,textBox);
     var p = document.createElement("p");
-    p.setAttribute("style","width:100%;height:1px;");
-    editform.insertBefore(p,textBox);
+    // p.setAttribute("style","width:100%;height:1px;");
+    // editform.insertBefore(p,textBox);
 
 }
 

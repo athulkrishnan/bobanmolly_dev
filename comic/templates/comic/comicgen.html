@@ -14,9 +14,9 @@
                     <div>
                         <!-- Start new dropdown -->
                         <div class="form-group filled">
-                            <label class="control-label">Select</label>
+                            <!-- <label class="control-label">Select graphics</label> -->
                             <select id="collectionSel" class="form-control">
-                                <option value='all'>Select Collection</option>
+                                <option value='all'>Pick Collection</option>
                                 {% for c in collections %}
                                 <option value="{{ c.id }}">{{ c.name }}</option>
                                 {% endfor %}
@@ -45,8 +45,8 @@
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <span class="">
-                                Upload
+                            <span class="center">
+                                <center>Upload an image</center>
                                 <input class="btn btn-file btn-success" placeholder="test" type="file" id="imageAddBtn" name="imageAddBtn" accept="image/*">
                             </span>
                         </div>
@@ -55,10 +55,11 @@
             </li>
             <li> <a data-toggle="collapse" data-target="#Forms" aria-expanded="false" aria-controls="Forms" class="collapsible-header waves-effect"><i class="md md-input"></i>&nbsp;Add Text</a>
                 <ul id="Forms" class="collapse">
-                    <div class="container-fluid">
+                    <div class="container-fluid col-md-12">
                         <div class="row">
                             <div class="form-group">
-                                <label for="comment">Add Text</label>
+                                
+                                <!-- <label for="comment">Add Text</label> -->
                                 <form id="editform">
                                     <textarea class="form-control" rows="5" col="10" wrap="hard" id="textAddArea"></textarea>
                                 </form>
@@ -67,7 +68,7 @@
                         <div class="row">
                             <div class="col-md-5 micro-col">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Font <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" id="fontSelector">
@@ -84,8 +85,8 @@
                                 <div class="input-group spinner">
                                     <input type="text" class="form-control" value="50" id="fontSizeSelector">
                                     <div class="input-group-btn-vertical">
-                                        <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
-                                        <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                                        <button class="btn btn-xs btn-success" type="button"><i class="fa fa-caret-up"></i></button>
+                                        <button class="btn btn-xs btn-success" type="button"><i class="fa fa-caret-down"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -107,22 +108,23 @@
                 <div class="row">
                     <div class="btn-toolbar" role="toolbar" aria-label="...">
                         <div class="btn-group btn-toolbar__group" role="group" aria-label="...">
-                        <p><center>
-                            <!--<button type="button" class="flat-buttons" id="undoBtn"><i class="fa fa-undo"></i>Undo</button>
+                            <p>
+                                <center>
+                                    <!--<button type="button" class="flat-buttons" id="undoBtn"><i class="fa fa-undo"></i>Undo</button>
                 <button type="button" class="flat-buttons" id="redoBtn"><i class="fa fa-repeat"></i>Redo</button>-->
-                            <button type="button" class="btn btn-success" id="deleteBtn"><i class="fa fa-trash-o"></i> Delete</button> 
-                            <button type="button" class="btn btn-success" id="moveUp"><i class="fa fa-level-up"></i> Move Up</button> 
-                            <button type="button" class="btn btn-success" id="moveDown"><i class="fa fa-level-down"></i> Move Down</button> 
-                            <button type="button" class="btn btn-success" id="exportBtn"><i class="fa fa-download"></i> Download </button> 
-                            <button type="button" class="btn btn-success" id="clearBtn"><i class="fa fa-refresh"></i> Clear All</button>
-                        </span>
-                        </center></p>
+                                    <button type="button" class="btn btn-success" id="deleteBtn"><i class="fa fa-trash-o"></i> Delete</button>
+                                    <button type="button" class="btn btn-success" id="moveUp"><i class="fa fa-level-up"></i> Move Up</button>
+                                    <button type="button" class="btn btn-success" id="moveDown"><i class="fa fa-level-down"></i> Move Down</button>
+                                    <button type="button" class="btn btn-success" id="exportBtn"><i class="fa fa-download"></i> Download </button>
+                                    <button type="button" class="btn btn-success" id="clearBtn"><i class="fa fa-refresh"></i> Clear All</button>
+                                    </span>
+                                </center>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
         </nav>
-        <!-- Main COnte
-nt -->
+        <!-- Main Content -->
         <div class="main-content" autoscroll="true" bs-affix-target="" init-ripples="" style="">
             <div class="panel panel-default" id="canvaswrap">
                 <div class="panel-heading" id="canvashandle">Artboard <i class="fa fa-arrows pull-right" id="panicon"></i></div>
@@ -131,25 +133,6 @@ nt -->
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="btn-toolbar" role="toolbar" aria-label="...">
-                        <div class="btn-group btn-toolbar__group" role="group" aria-label="...">
-                        <p><center>
-                            <!--<button type="button" class="flat-buttons" id="undoBtn"><i class="fa fa-undo"></i>Undo</button>
-                <button type="button" class="flat-buttons" id="redoBtn"><i class="fa fa-repeat"></i>Redo</button>-->
-                            <button type="button" class="btn btn-success" id="deleteBtn"><i class="fa fa-trash-o"></i> Delete</button> 
-                            <button type="button" class="btn btn-success" id="moveUp"><i class="fa fa-level-up"></i> Move Up</button> 
-                            <button type="button" class="btn btn-success" id="moveDown"><i class="fa fa-level-down"></i> Move Down</button> 
-                            <button type="button" class="btn btn-success" id="exportBtn"><i class="fa fa-download"></i> Download </button> 
-                            <button type="button" class="btn btn-success" id="clearBtn"><i class="fa fa-refresh"></i> Clear All</button>
-                        </span>
-                        </center></p>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
+        </div>
 </main>
 {% endblock %}

@@ -52,7 +52,7 @@ fabric.Object.prototype.set({
     // console.log(cWidth);
     // console.log(cHeight);
     var cHeight = 600;
-    var cWidth = 1000;
+    var cWidth = 980;
     $('#c').attr('height', cHeight);
     $('#c').attr('width', cWidth);
     // $('#c').css('margin-left', ($('.canvaswrap').width() * 5 / 100));
