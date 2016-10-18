@@ -1,5 +1,6 @@
-html,body {
-    height:100%;
+html,
+body {
+    height: 100%;
     /*overflow: hidden;*/
 }
 
@@ -12,13 +13,14 @@ html,body {
 
 .btn-toolbar {
     width: 100%;
-    background:#222222; 
+    background: #222222;
     margin-left: 0px;
 }
 
-.btn-group{
+.btn-group {
     margin-left: 0px;
 }
+
 .container-fluid {
     height: 100%;
 }
@@ -26,7 +28,6 @@ html,body {
 .form-group {
     margin-bottom: 10px;
 }
-
 
 label {
     color: white;
@@ -58,26 +59,25 @@ label {
     display: block;
 }
 
-#left-panel{
+#left-panel {
     height: 100vh;
     background: #3E3E3E;
     border-right: 1px solid black;
 }
 
-#centre-panel{
+#centre-panel {
     height: 100vh;
     background: #2B2B2B;
     padding-left: 0px;
     padding-right: 0px;
 }
 
-#right-panel{
+#right-panel {
     height: 100vh;
     background: #3E3E3E;
     border-left: 1px solid black;
 }
 
-
-.bg-white{
-    background:#ffffff;
+.bg-white {
+    background: #ffffff;
 }

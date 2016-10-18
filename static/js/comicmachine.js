@@ -29,14 +29,14 @@ var selectedFont = 'Rachana';
 
 $(function() {
 
-// Do some initializing stuff
-fabric.Object.prototype.set({
-    transparentCorners: false,
-    padding: 5,
-    borderColor: '#9D6B3F',
-    cornerSize: 10,
-    cornerColor: '#9D6B3F',
-});
+    // Do some initializing stuff
+    fabric.Object.prototype.set({
+        transparentCorners: false,
+        padding: 5,
+        borderColor: '#9D6B3F',
+        cornerSize: 10,
+        cornerColor: '#9D6B3F',
+    });
 
 
     $('#editform').attr('style', 'color:white;');
@@ -51,7 +51,7 @@ fabric.Object.prototype.set({
     // console.log("Starting canvas with:\n")
     // console.log(cWidth);
     // console.log(cHeight);
-    var cHeight = 600;
+    var cHeight = 610;
     var cWidth = 980;
     $('#c').attr('height', cHeight);
     $('#c').attr('width', cWidth);
@@ -70,8 +70,8 @@ fabric.Object.prototype.set({
         })
         .resizable()
         .bind({
-            resize : function(event,ui) {
-                canvas.setHeight(ui.size.height-30);
+            resize: function(event, ui) {
+                canvas.setHeight(ui.size.height - 30);
                 canvas.setWidth(ui.size.width);
                 canvas.renderAll();
             },
@@ -127,7 +127,7 @@ fabric.Object.prototype.set({
                 $('.img-back').mousemove(function(event) {
                     var left = event.pageX - $(this).offset().left;
                     var top = event.pageY - $(this).offset().top;
-                    if (left<0 || left>$(this).width() || top<0 || top>$(this).height()) {
+                    if (left < 0 || left > $(this).width() || top < 0 || top > $(this).height()) {
                         $(this).find(".img-responsive").removeClass('transition');
                     }
                 });
@@ -269,29 +269,55 @@ fabric.Object.prototype.set({
         newleft = 0;
     });
 
+    // Background Image function
+    fabric.util.addListener(document.getElementById('bgBtn'), 'click', function() {
+        if (canvas.backgroundColor instanceof fabric.Pattern) {
+            canvas.setBackgroundColor('rgba(255, 255, 255, 1)', canvas.renderAll.bind(canvas));
+        } else if (fabric.Pattern) {
+            canvas.setBackgroundColor({ source: '/static/images/cork-wallet.png' }, canvas.renderAll.bind(canvas));
+        } else {
+            canvas.setBackgroundColor({ source: '/static/images/cork-wallet.png' }, canvas.renderAll.bind(canvas));
+        }
+    });
+
+    // Speech bubble
+    $('#speechBtn').on('click', addImg);
+
+    function addImg() {
+        fabric.Image.fromURL('/static/images/speech.png', function(oImg) {
+            var l = Math.random() * (500 - 0) + 0;
+            var t = Math.random() * (500 - 0) + 0;
+            oImg.scale(0.2);
+            oImg.set({ 'left': l });
+            oImg.set({ 'top': t });
+            canvas.add(oImg);
+        });
+    }
+
+
     $('#deleteBtn').on('click', function() {
         removeActiveElement();
     });
 
-  // Allow use of backspace or delete key to delete objects
-  window.addEventListener("keydown", function(e) {
-    if (e.keyCode === 8 || e.keyCode === 46) {
-      // Prevent default function if used on canvas
-      var tag = e.srcElement || e.target;
-      var tagName = tag.tagName.toLowerCase();
-      if (isNotInput(tag, tagName)) {
-        e.preventDefault();
-        removeActiveElement();
-      }
-    }
-  });
+    // Allow use of backspace or delete key to delete objects
+    window.addEventListener("keydown", function(e) {
+        if (e.keyCode === 8 || e.keyCode === 46) {
+            // Prevent default function if used on canvas
+            var tag = e.srcElement || e.target;
+            var tagName = tag.tagName.toLowerCase();
+            if (isNotInput(tag, tagName)) {
+                e.preventDefault();
+                removeActiveElement();
+            }
+        }
+    });
 
-  function isNotInput(tag, tagName) {
-    if (tagName === "input" || tagName === "textarea") {
-      return (tag.readOnly || tag.disabled);
+    function isNotInput(tag, tagName) {
+        if (tagName === "input" || tagName === "textarea") {
+            return (tag.readOnly || tag.disabled);
+        }
+        return true;
     }
-    return true;
-  }
 
     $('#moveUp').on('click', function() {
         canvas.bringToFront(getActiveElement());
@@ -302,7 +328,7 @@ fabric.Object.prototype.set({
     });
 
     $('#textAddBtn').on('click', function() {
-        var selectedFontSize =  $('#fontSizeSelector').val();
+        var selectedFontSize = $('#fontSizeSelector').val();
         var textToadd = $('#textAddArea').val();
         var newtext = new fabric.ScalableTextbox(textToadd, {
             fontFamily: selectedFont,
@@ -438,26 +464,64 @@ fabric.Object.prototype.set({
     //         canvas.add(img);
     //     });
     // });
-    $(".dropdown-menu li a").click(function(){
-      var selText = $(this).text();
-      $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+    $(".dropdown-menu li a").click(function() {
+        var selText = $(this).text();
+        $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
     });
 
-    $("#fontSelector li a").click(function(){
-      selectedFont = $(this).attr('id');
-      console.log(selectedFont);
+    $("#fontSelector li a").click(function() {
+        selectedFont = $(this).attr('id');
+        console.log(selectedFont);
     });
 
 
-  $('.spinner .btn:first-of-type').on('click', function() {
-    $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
-  });
-  $('.spinner .btn:last-of-type').on('click', function() {
-    $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
-  });
+    $('.spinner .btn:first-of-type').on('click', function() {
+        $('.spinner input').val(parseInt($('.spinner input').val(), 10) + 1);
+    });
+    $('.spinner .btn:last-of-type').on('click', function() {
+        $('.spinner input').val(parseInt($('.spinner input').val(), 10) - 1);
+    });
 
-  $('#canvashandle').hover(function (){
-    $('#panicon').toggle();
-  });
+    $('#canvashandle').hover(function() {
+        $('#panicon').toggle();
+    });
 
 });
+
+
+//setBackgroundImage
+// Do some initializing stuff
+fabric.Object.prototype.set({
+    transparentCorners: false,
+    cornerColor: 'rgba(102,153,255,0.5)',
+    cornerSize: 12,
+    padding: 5
+});
+
+// initialize fabric canvas and assign to global windows object for debug
+// var canvas = window._canvas = new fabric.Canvas('c');
+
+// // canvas.setBackgroundColor({source: 'http://fabricjs.com/assets/escheresque_ste.png'}, canvas.renderAll.bind(canvas));
+
+// fabric.util.addListener(document.getElementById('toggle-repeat'), 'click', function () {
+//     if (!canvas.backgroundColor instanceof fabric.Pattern) return;
+
+//     canvas.backgroundColor.repeat = canvas.backgroundColor.repeat === 'repeat' 
+//         ? 'repeat-x'
+//         : canvas.backgroundColor.repeat === 'repeat-x'
+//             ? 'repeat-y'
+//             : canvas.backgroundColor.repeat === 'repeat-y'
+//                 ? 'no-repeat'
+//                 : 'repeat';
+
+//     canvas.renderAll();
+// });
+
+// fabric.util.addListener(document.getElementById('bgBtn'), 'click', function () {
+//     if (canvas.backgroundColor instanceof fabric.Pattern) {
+//         canvas.setBackgroundColor('rgba(255, 73, 64, 0.6)', canvas.renderAll.bind(canvas));
+//     }
+//     else {
+//         canvas.setBackgroundColor({source: 'http://fabricjs.com/assets/escheresque_ste.png'}, canvas.renderAll.bind(canvas));        
+//     }
+// });

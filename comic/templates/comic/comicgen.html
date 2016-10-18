@@ -1,15 +1,24 @@
 {% extends 'comic/base.html' %} {% block maincontent %}
-<main>
+<main style="background-color: #bdbdbd;">
     <aside class="sidebar fixed" style="width: 260px; left: 0px; ">
-        <div class="brand-logo">
-            <div id="logo">
-                <div class="foot1"></div>
-                <div class="foot2"></div>
-                <div class="foot3"></div>
-                <div class="foot4"></div>
-            </div> Boban and Molly </div>
+        <div class="brand-logo" style="background-color: #f99f07; line-height: 30px;">
+            <!-- <div id="logo"> -->
+            <img src="/static/images/logo.png">
+            <!-- </div> -->
+            <div style="padding-bottom: 10px;>
+            <h6 style="color: white;">
+            Boban and Molly<br>Comic Creator
+            </h6>
+            </div>
+        </div>
+        <div style="height: 40px; height: 40px; display: table; ">
+
+        <!-- <i class="fa fa-user fa-5x" style="float: right;"></i> -->
+            <h6 style="float: left; color: white;">[[User Profile]]</h6>
+            <i class="fa fa-sign-in fa-5x" style="float: right;"></i>
+        </div>
         <ul class="menu-links">
-            <li> <a data-toggle="collapse" data-target="#APPS" aria-expanded="false" aria-controls="APPS" class="collapsible-header waves-effect"><i class="md md-camera"></i>&nbsp;Add Artwork</a>
+            <li> <a data-toggle="collapse" data-target="#APPS" aria-expanded="false" aria-controls="APPS" class="collapsible-header waves-effect" style="background-color: #474747"><i class="md md-camera"></i>&nbsp;Add Artwork</a>
                 <ul id="APPS" class="collapse">
                     <div>
                         <!-- Start new dropdown -->
@@ -53,12 +62,11 @@
                     </div>
                 </ul>
             </li>
-            <li> <a data-toggle="collapse" data-target="#Forms" aria-expanded="false" aria-controls="Forms" class="collapsible-header waves-effect"><i class="md md-input"></i>&nbsp;Add Text</a>
+            <li> <a data-toggle="collapse" data-target="#Forms" aria-expanded="false" aria-controls="Forms" style="background-color: #474747" class="collapsible-header waves-effect"><i class="md md-input"></i>&nbsp;Add Text</a>
                 <ul id="Forms" class="collapse">
                     <div class="container-fluid col-md-12">
                         <div class="row">
                             <div class="form-group">
-                                
                                 <!-- <label for="comment">Add Text</label> -->
                                 <form id="editform">
                                     <textarea class="form-control" rows="5" col="10" wrap="hard" id="textAddArea"></textarea>
@@ -85,15 +93,15 @@
                                 <div class="input-group spinner">
                                     <input type="text" class="form-control" value="50" id="fontSizeSelector">
                                     <div class="input-group-btn-vertical">
-                                        <button class="btn btn-xs btn-success" type="button"><i class="fa fa-caret-up"></i></button>
-                                        <button class="btn btn-xs btn-success" type="button"><i class="fa fa-caret-down"></i></button>
+                                        <button class="btn btn-xs btn-success" type="button" style="height: 20px; width: 20px;"><i class="fa fa-caret-up"></i></button>
+                                        <button class="btn btn-xs btn-success" type="button" style="height: 20px; width: 20px;"><i class="fa fa-caret-down"></i></button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 col-lg-12 micro-col">
-                                <button type="button" class="btn btn-file btn-success" id="textAddBtn">Insert</button>
+                                <button type="button" class="btn " id="textAddBtn">Insert</button>
                             </div>
                         </div>
                         <br/>
@@ -103,15 +111,15 @@
         </ul>
     </aside>
     <div class="main-container">
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <!-- <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="row">
                     <div class="btn-toolbar" role="toolbar" aria-label="...">
                         <div class="btn-group btn-toolbar__group" role="group" aria-label="...">
                             <p>
                                 <center>
-                                    <!--<button type="button" class="flat-buttons" id="undoBtn"><i class="fa fa-undo"></i>Undo</button>
-                <button type="button" class="flat-buttons" id="redoBtn"><i class="fa fa-repeat"></i>Redo</button>-->
+                                    <button type="button" class="flat-buttons" id="undoBtn"><i class="fa fa-undo"></i>Undo</button>
+                <button type="button" class="flat-buttons" id="redoBtn"><i class="fa fa-repeat"></i>Redo</button>
                                     <button type="button" class="btn btn-success" id="deleteBtn"><i class="fa fa-trash-o"></i> Delete</button>
                                     <button type="button" class="btn btn-success" id="moveUp"><i class="fa fa-level-up"></i> Move Up</button>
                                     <button type="button" class="btn btn-success" id="moveDown"><i class="fa fa-level-down"></i> Move Down</button>
@@ -123,16 +131,57 @@
                         </div>
                     </div>
                 </div>
-        </nav>
+            </div>
+        </nav> -->
         <!-- Main Content -->
-        <div class="main-content" autoscroll="true" bs-affix-target="" init-ripples="" style="">
+        <div class="main-content" autoscroll="true" bs-affix-target="" init-ripples="" style="padding-top: 0px;">
             <div class="panel panel-default" id="canvaswrap">
-                <div class="panel-heading" id="canvashandle">Artboard <i class="fa fa-arrows pull-right" id="panicon"></i></div>
+                <!-- <div class="panel-heading" id="canvashandle">Artboard <i class="fa fa-arrows pull-right" id="panicon"></i></div> -->
                 <div class="panel-body">
                     <canvas id="c"></canvas>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- //control panel -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="btn-toolbar" role="toolbar" aria-label="...">
+                <div class="btn-group btn-toolbar__group" role="group" aria-label="...">
+                    <p>
+                        <center>
+                            <!--<button type="button" class="flat-buttons" id="undoBtn"><i class="fa fa-undo"></i>Undo</button>
+                <button type="button" class="flat-buttons" id="redoBtn"><i class="fa fa-repeat"></i>Redo</button>-->
+                            <div class="btn-group-vertical">
+                                <button type="button" class="btn btn-success" id="deleteBtn">Delete</button>
+                                <br>
+                                <button type="button" class="btn btn-success" id="moveUp">Move Up</button>
+                            </div>
+                            <div class="btn-group-vertical">
+                                <button type="button" class="btn btn-success" id="moveDown">Move Down</button>
+                                <br>
+                                <button type="button" class="btn btn-success" id="exportBtn">Download </button>
+                            </div>
+                            <div class="btn-group-vertical">
+                                <button type="button" class="btn btn-success" id="clearBtn">Clear All</button>
+                                <br>
+                                <button type="button" class="btn btn-success" id="bgBtn">Background</button>
+                            </div>
+                            <!-- <div class="btn-group-vertical" style="padding-left: 10px;">
+                                <textarea style="background-color: white; min-height: 90px; " col="5" wrap="hard" id="textAddArea"></textarea>
+                            </div> -->
+                            <div class="btn-group-vertical">
+                                <button type="button" class="btn btn-success" id="speechBtn">Speech Bubble</button>
+                                <br>
+                                <button type="button" class="btn btn-success" id="submit">Submit</button>
+                            </div>
+
+
+                        </center>
+                    </p>
+                </div>
+            </div>
         </div>
+    </div>
 </main>
 {% endblock %}

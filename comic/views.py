@@ -91,3 +91,6 @@ def about(request):
 
 def unsupported(request):
     return render_to_response('comic/unsupported.html')
+
+def login(request):
+    return render_to_response('comic/login.html')
